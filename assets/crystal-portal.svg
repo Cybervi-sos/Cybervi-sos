@@ -1,0 +1,64 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <defs>
+    <radialGradient id="space">
+      <stop offset="0" stop-color="#39245d"/>
+      <stop offset=".55" stop-color="#17142f"/>
+      <stop offset="1" stop-color="#080b19"/>
+    </radialGradient>
+    <radialGradient id="portal">
+      <stop offset="0" stop-color="#fff7fc" stop-opacity=".05"/>
+      <stop offset=".65" stop-color="#d9a9ff" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#b77aff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f9d5ff"/>
+      <stop offset=".35" stop-color="#a98aff"/>
+      <stop offset=".7" stop-color="#f4a9d7"/>
+      <stop offset="1" stop-color="#fff0c9"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="520" fill="url(#space)"/>
+  <ellipse cx="600" cy="255" rx="420" ry="230" fill="url(#portal)"/>
+
+  <g fill="#fff">
+    <circle cx="100" cy="80" r="2"/><circle cx="220" cy="190" r="1.5"/>
+    <circle cx="340" cy="65" r="2"/><circle cx="470" cy="130" r="1.5"/>
+    <circle cx="790" cy="75" r="2"/><circle cx="950" cy="160" r="1.5"/>
+    <circle cx="1080" cy="85" r="2"/><circle cx="1120" cy="330" r="1.5"/>
+    <circle cx="180" cy="390" r="2"/><circle cx="350" cy="455" r="1.5"/>
+    <circle cx="870" cy="430" r="2"/><circle cx="1030" cy="390" r="1.5"/>
+  </g>
+
+  <g fill="none" stroke="url(#ring)" filter="url(#glow)">
+    <ellipse cx="600" cy="260" rx="235" ry="190" stroke-width="2" opacity=".9"/>
+    <ellipse cx="600" cy="260" rx="205" ry="165" stroke-width="1.5" opacity=".65"/>
+    <ellipse cx="600" cy="260" rx="170" ry="138" stroke-width="1" opacity=".5"/>
+  </g>
+
+  <g fill="none" stroke="#f7d9ff" opacity=".7">
+    <path d="M600 32 L600 90 M600 430 L600 488 M365 260 L420 260 M780 260 L835 260"/>
+    <path d="M433 105 L470 142 M730 378 L767 415 M433 415 L470 378 M730 142 L767 105"/>
+  </g>
+
+  <g filter="url(#glow)">
+    <path d="M600 190 L650 260 L600 330 L550 260 Z" fill="#d7b6ff" fill-opacity=".18" stroke="#f5d9ff" stroke-width="2"/>
+    <path d="M600 210 L635 260 L600 310 L565 260 Z" fill="none" stroke="#fff" stroke-opacity=".65"/>
+  </g>
+
+  <g fill="#f8eaff" font-family="Georgia,serif" text-anchor="middle">
+    <text x="600" y="390" font-size="15" letter-spacing="8">A NEW UNIVERSE AWAKENS</text>
+    <text x="600" y="445" font-size="11" letter-spacing="5" opacity=".65">✦  CRYSTAL GEMS  ✦</text>
+  </g>
+
+  <g fill="#f8d7ff">
+    <path d="M280 245 l5 12 12 5 -12 5 -5 12 -5 -12 -12 -5 12 -5z"/>
+    <path d="M920 160 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4z"/>
+    <path d="M850 350 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z"/>
+  </g>
+</svg>

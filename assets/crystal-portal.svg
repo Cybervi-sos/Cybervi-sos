@@ -1,137 +1,202 @@
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
-  <defs>
-    <radialGradient id="bg">
-      <stop offset="0" stop-color="#39204e"/>
-      <stop offset=".55" stop-color="#17152f"/>
-      <stop offset="1" stop-color="#080b18"/>
-    </radialGradient>
-    <radialGradient id="light">
-      <stop offset="0" stop-color="#fff" stop-opacity=".9"/>
-      <stop offset=".25" stop-color="#e5b8ff" stop-opacity=".5"/>
-      <stop offset="1" stop-color="#b66cff" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#fff1ff"/>
-      <stop offset=".45" stop-color="#c18aff"/>
-      <stop offset="1" stop-color="#ff9ecb"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="7" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <style>
-      .portal {
-        transform-origin:600px 270px;
-        animation: spin 12s linear infinite;
-      }
-      .pulse { animation: pulse 3s ease-in-out infinite; }
-      .gem {
-        transform-box:fill-box;
-        transform-origin:center;
-        animation: gemGlow 2s ease-in-out infinite alternate;
-      }
-      .scene {
-        opacity:0;
-        animation: appear 16s infinite;
-      }
-      .s1 { animation-delay:0s; }
-      .s2 { animation-delay:4s; }
-      .s3 { animation-delay:8s; }
-      .s4 { animation-delay:12s; }
-      @keyframes spin { to { transform:rotate(360deg); } }
-      @keyframes pulse {
-        0%,100% { opacity:.35; transform:scale(.94); }
-        50% { opacity:.9; transform:scale(1.06); }
-      }
-      @keyframes gemGlow {
-        from { filter:drop-shadow(0 0 3px #fff); }
-        to { filter:drop-shadow(0 0 14px #e7aaff); }
-      }
-      @keyframes appear {
-        0%,5% { opacity:0; transform:translateY(22px) scale(.88); }
-        12%,20% { opacity:1; transform:translateY(0) scale(1); }
-        25%,100% { opacity:0; transform:translateY(-18px) scale(1.06); }
-      }
-    </style>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 760" width="1200" height="760">
+<defs>
+  <style>
+    text { font-family: "Courier New", monospace; }
+    .screen { fill:#393939; }
+    .pixel { shape-rendering:crispEdges; }
+    .option { cursor:pointer; }
+    .option .outline { fill:none; stroke:#fff; stroke-width:3; opacity:0; stroke-dasharray:9 5; }
+    .option:hover .outline { opacity:1; }
+    .option:hover .sprite { filter:drop-shadow(0 0 9px #fff); }
+    .option:hover .label { fill:#fff; }
+    .label { fill:#d6d6d6; font-size:19px; font-weight:bold; letter-spacing:3px; }
+    .hint { fill:#aaa; font-size:12px; letter-spacing:3px; }
+    .blink { animation: blink 1.1s steps(2,end) infinite; }
+    .float { animation: float 2.8s ease-in-out infinite; }
+    .float2 { animation: float 2.8s ease-in-out 1.2s infinite; }
+    @keyframes blink { 50% { opacity:.2; } }
+    @keyframes float { 50% { transform:translateY(-7px); } }
+  </style>
+</defs>
 
-  <rect width="1200" height="600" fill="url(#bg)"/>
+<!-- GAME SCREEN -->
+<rect width="1200" height="760" fill="#111"/>
+<rect x="18" y="18" width="1164" height="724" fill="#393939" stroke="#555" stroke-width="4"/>
+<rect x="28" y="28" width="1144" height="704" fill="none" stroke="#242424" stroke-width="2"/>
 
-  <g fill="#fff">
-    <circle cx="90" cy="90" r="2"/><circle cx="190" cy="230" r="1.5"/>
-    <circle cx="300" cy="75" r="2"/><circle cx="430" cy="180" r="1.5"/>
-    <circle cx="800" cy="85" r="2"/><circle cx="990" cy="150" r="1.5"/>
-    <circle cx="1100" cy="90" r="2"/><circle cx="1060" cy="420" r="1.5"/>
-    <circle cx="140" cy="440" r="2"/><circle cx="350" cy="500" r="1.5"/>
-    <circle cx="870" cy="480" r="2"/><circle cx="720" cy="120" r="1.5"/>
+<!-- PIXEL STARS -->
+<g fill="#eee" opacity=".8" class="pixel">
+  <rect x="100" y="100" width="5" height="5"/>
+  <rect x="210" y="250" width="4" height="4"/>
+  <rect x="1080" y="110" width="5" height="5"/>
+  <rect x="1000" y="260" width="4" height="4"/>
+  <rect x="150" y="610" width="5" height="5"/>
+  <rect x="1050" y="600" width="5" height="5"/>
+  <rect x="580" y="95" width="4" height="4"/>
+  <rect x="640" y="655" width="4" height="4"/>
+</g>
+
+<!-- HEADER -->
+<g text-anchor="middle">
+  <text x="600" y="82" fill="#aaa" font-size="15" letter-spacing="6">WELCOME TO MY UNIVERSE</text>
+  <text x="600" y="145" fill="#fff" font-size="48" font-weight="bold" letter-spacing="4">VITORIA COSTA</text>
+  <text x="600" y="178" fill="#d2d2d2" font-size="14" letter-spacing="5">SOFTWARE ENGINEERING</text>
+  <path d="M390 198H810" stroke="#aaa" stroke-width="2" stroke-dasharray="5 7"/>
+</g>
+
+<!-- STEVEN / MY UNIVERSE -->
+<a href="https://cybervi-sos.github.io/Cybervi-sos/" target="_blank" rel="noopener">
+<g class="option" transform="translate(105 220)">
+  <rect class="outline" x="-20" y="-20" width="245" height="225"/>
+  <g class="sprite float pixel">
+    <!-- Hair -->
+    <rect x="55" y="8" width="75" height="18" fill="#30202a"/>
+    <rect x="38" y="25" width="110" height="22" fill="#30202a"/>
+    <rect x="30" y="47" width="25" height="35" fill="#30202a"/>
+    <rect x="135" y="43" width="20" height="30" fill="#30202a"/>
+    <!-- Face -->
+    <rect x="50" y="43" width="90" height="70" fill="#efb49f"/>
+    <rect x="42" y="65" width="12" height="35" fill="#efb49f"/>
+    <rect x="138" y="65" width="12" height="35" fill="#efb49f"/>
+    <!-- Hair fringe -->
+    <rect x="52" y="35" width="30" height="22" fill="#30202a"/>
+    <rect x="82" y="28" width="28" height="18" fill="#30202a"/>
+    <rect x="110" y="36" width="25" height="18" fill="#30202a"/>
+    <!-- Eyes -->
+    <rect x="73" y="72" width="7" height="10" fill="#241a20"/>
+    <rect x="111" y="72" width="7" height="10" fill="#241a20"/>
+    <!-- Smile -->
+    <rect x="84" y="94" width="25" height="5" fill="#a75d68"/>
+    <!-- Shirt -->
+    <rect x="48" y="115" width="92" height="58" fill="#d94c72"/>
+    <rect x="28" y="126" width="20" height="42" fill="#d94c72"/>
+    <rect x="140" y="126" width="20" height="42" fill="#d94c72"/>
+    <!-- Star -->
+    <path d="M94 125 L101 141 L118 141 L104 151 L109 166 L94 156 L79 166 L84 151 L70 141 L87 141Z" fill="#ffe9b6"/>
+    <!-- Legs -->
+    <rect x="65" y="173" width="25" height="18" fill="#30202a"/>
+    <rect x="105" y="173" width="25" height="18" fill="#30202a"/>
+    <rect x="60" y="190" width="32" height="7" fill="#25202a"/>
+    <rect x="103" y="190" width="32" height="7" fill="#25202a"/>
   </g>
+  <text class="label" x="95" y="245" text-anchor="middle">STEVEN</text>
+  <text class="hint" x="95" y="265" text-anchor="middle">MY UNIVERSE</text>
+</g>
+</a>
 
-  <ellipse cx="600" cy="265" rx="430" ry="260" fill="url(#light)" class="pulse"/>
-
-  <g class="portal" fill="none" stroke="url(#ring)" filter="url(#glow)">
-    <ellipse cx="600" cy="270" rx="240" ry="190" stroke-width="3"/>
-    <ellipse cx="600" cy="270" rx="210" ry="165" stroke-width="1.5" stroke-dasharray="12 15"/>
-    <ellipse cx="600" cy="270" rx="175" ry="135" stroke-width="1" stroke-dasharray="4 12"/>
+<!-- PEARL / GMAIL -->
+<a href="mailto:vitoria.ccosta2024@gmail.com" target="_blank" rel="noopener">
+<g class="option" transform="translate(865 220)">
+  <rect class="outline" x="-20" y="-20" width="245" height="225"/>
+  <g class="sprite float2 pixel">
+    <!-- Hair silhouette -->
+    <rect x="55" y="5" width="65" height="20" fill="#eee3f0"/>
+    <rect x="35" y="25" width="105" height="25" fill="#eee3f0"/>
+    <rect x="25" y="50" width="25" height="65" fill="#eee3f0"/>
+    <rect x="135" y="50" width="25" height="60" fill="#eee3f0"/>
+    <rect x="45" y="110" width="20" height="22" fill="#eee3f0"/>
+    <!-- Face -->
+    <rect x="55" y="45" width="75" height="78" fill="#f1c8c2"/>
+    <rect x="47" y="65" width="10" height="35" fill="#f1c8c2"/>
+    <rect x="128" y="65" width="10" height="35" fill="#f1c8c2"/>
+    <!-- Pointed hair -->
+    <path d="M88 8 L108 48 L88 58 L68 48Z" fill="#fff6ec"/>
+    <!-- Eyes -->
+    <rect x="72" y="77" width="6" height="9" fill="#5e7780"/>
+    <rect x="108" y="77" width="6" height="9" fill="#5e7780"/>
+    <rect x="87" y="105" width="18" height="4" fill="#b47e90"/>
+    <!-- Outfit -->
+    <path d="M48 130 L95 115 L142 130 L153 190 L35 190Z" fill="#b5e5df"/>
+    <rect x="87" y="128" width="18" height="35" fill="#f8eee7"/>
+    <!-- Gem -->
+    <path d="M95 143 L106 155 L95 167 L84 155Z" fill="#b8f4ef" stroke="#fff" stroke-width="2"/>
+    <!-- Spear -->
+    <rect x="165" y="38" width="5" height="160" fill="#d7f3ee"/>
+    <path d="M167 12 L181 40 L167 55 L153 40Z" fill="#eaffff" stroke="#a5e9ee" stroke-width="2"/>
   </g>
+  <text class="label" x="95" y="245" text-anchor="middle">PEARL</text>
+  <text class="hint" x="95" y="265" text-anchor="middle">GMAIL</text>
+</g>
+</a>
 
-  <g fill="none" stroke="#f7dfff" opacity=".7">
-    <path d="M600 35V100 M600 440V505 M350 270H420 M780 270H850"/>
-    <path d="M420 90L465 135 M735 405L780 450 M420 450L465 405 M735 135L780 90"/>
+<!-- CENTER MESSAGE -->
+<g text-anchor="middle">
+  <text x="600" y="325" fill="#fff" font-size="36" font-weight="bold" letter-spacing="3">CHOOSE</text>
+  <text x="600" y="375" fill="#fff" font-size="36" font-weight="bold" letter-spacing="3">YOUR GEM</text>
+  <path d="M530 398H670" stroke="#aaa" stroke-width="2"/>
+  <text x="600" y="432" fill="#bbb" font-size="13" letter-spacing="3">SELECT A CHARACTER</text>
+  <text x="600" y="458" fill="#aaa" font-size="12" letter-spacing="2">TO EXPLORE MY WORLD</text>
+  <g class="blink" fill="#fff">
+    <path d="M600 483 L608 499 L625 499 L612 510 L617 527 L600 516 L583 527 L588 510 L575 499 L592 499Z"/>
   </g>
+</g>
 
-  <!-- AMETHYST -->
-  <g class="scene s1">
-    <ellipse cx="600" cy="270" rx="130" ry="155" fill="#b47aff" opacity=".12" filter="url(#glow)"/>
-    <path d="M545 190 Q500 205 510 290 L530 365 L565 345 L580 390 L620 390 L640 345 L680 365 L690 270 Q700 200 650 185Z" fill="#7139a1" stroke="#e8c7ff" stroke-width="3"/>
-    <path d="M550 195 Q600 140 660 195 L675 250 Q630 225 600 250 Q560 225 525 260Z" fill="#eee0ff"/>
-    <path d="M560 250 Q600 235 640 250 L650 315 Q600 350 550 315Z" fill="#d8a5ff"/>
-    <path d="M585 270 L615 270" stroke="#44235f" stroke-width="5" stroke-linecap="round"/>
-    <path d="M580 300 Q600 315 620 300" fill="none" stroke="#44235f" stroke-width="4"/>
-    <path class="gem" d="M600 350 L615 365 L600 380 L585 365Z" fill="#d9b2ff" stroke="#fff" stroke-width="2"/>
-    <text x="600" y="455" fill="#e7c5ff" font-size="22" letter-spacing="7" text-anchor="middle">AMETHYST</text>
+<!-- GARNET / GITHUB -->
+<a href="https://github.com/Cybervi-sos" target="_blank" rel="noopener">
+<g class="option" transform="translate(105 475)">
+  <rect class="outline" x="-20" y="-20" width="245" height="225"/>
+  <g class="sprite float2 pixel">
+    <!-- Hair -->
+    <rect x="42" y="5" width="105" height="25" fill="#21172c"/>
+    <rect x="25" y="30" width="135" height="65" fill="#21172c"/>
+    <rect x="35" y="90" width="25" height="48" fill="#21172c"/>
+    <rect x="135" y="90" width="25" height="48" fill="#21172c"/>
+    <!-- Face -->
+    <rect x="53" y="45" width="80" height="75" fill="#87536f"/>
+    <!-- Visor -->
+    <rect x="40" y="56" width="108" height="30" fill="#ec9ccf"/>
+    <rect x="48" y="62" width="92" height="18" fill="#21172c"/>
+    <rect x="60" y="65" width="28" height="8" fill="#f6c7eb"/>
+    <rect x="100" y="65" width="28" height="8" fill="#f6c7eb"/>
+    <!-- Body -->
+    <rect x="48" y="120" width="90" height="60" fill="#8f245f"/>
+    <rect x="28" y="130" width="20" height="38" fill="#8f245f"/>
+    <rect x="138" y="130" width="20" height="38" fill="#8f245f"/>
+    <!-- Gem -->
+    <path d="M93 130 L107 145 L93 160 L79 145Z" fill="#eaa5d2" stroke="#fff" stroke-width="2"/>
+    <!-- Legs -->
+    <rect x="62" y="180" width="25" height="18" fill="#251b30"/>
+    <rect x="105" y="180" width="25" height="18" fill="#251b30"/>
   </g>
+  <text class="label" x="95" y="245" text-anchor="middle">GARNET</text>
+  <text class="hint" x="95" y="265" text-anchor="middle">GITHUB</text>
+</g>
+</a>
 
-  <!-- STEVEN -->
-  <g class="scene s2">
-    <ellipse cx="600" cy="270" rx="130" ry="155" fill="#ff9db9" opacity=".14" filter="url(#glow)"/>
-    <path d="M535 205 Q535 145 600 150 Q665 145 665 205 L680 350 L520 350Z" fill="#4a253b" stroke="#ffc4d7" stroke-width="3"/>
-    <path d="M550 205 Q555 155 600 160 Q650 155 650 205 L650 270 L550 270Z" fill="#e9b5a1"/>
-    <path d="M535 205 Q550 145 600 160 Q645 145 665 205 Q635 185 615 200 Q575 180 535 225Z" fill="#3c2635"/>
-    <path d="M550 280 L650 280 L675 390 L525 390Z" fill="#d84c72"/>
-    <path d="M600 300 L625 325 L600 350 L575 325Z" fill="#fff0ed" stroke="#fff" stroke-width="2"/>
-    <circle cx="580" cy="235" r="5" fill="#402b38"/><circle cx="620" cy="235" r="5" fill="#402b38"/>
-    <path d="M585 255 Q600 265 615 255" fill="none" stroke="#75404c" stroke-width="3"/>
-    <text x="600" y="455" fill="#ffc1d5" font-size="22" letter-spacing="7" text-anchor="middle">STEVEN</text>
+<!-- AMETHYST / LINKEDIN -->
+<a href="https://www.linkedin.com/in/vit%C3%B3ria-cristina-martins-costa-8353b13a4/" target="_blank" rel="noopener">
+<g class="option" transform="translate(865 475)">
+  <rect class="outline" x="-20" y="-20" width="245" height="225"/>
+  <g class="sprite float pixel">
+    <!-- Hair -->
+    <rect x="52" y="5" width="78" height="20" fill="#eee4f7"/>
+    <rect x="30" y="25" width="125" height="32" fill="#eee4f7"/>
+    <rect x="20" y="55" width="28" height="80" fill="#eee4f7"/>
+    <rect x="140" y="55" width="28" height="80" fill="#eee4f7"/>
+    <rect x="35" y="120" width="25" height="25" fill="#eee4f7"/>
+    <rect x="130" y="120" width="25" height="25" fill="#eee4f7"/>
+    <!-- Face -->
+    <rect x="50" y="52" width="90" height="83" fill="#a975cf"/>
+    <!-- Fringe -->
+    <rect x="48" y="42" width="38" height="20" fill="#eee4f7"/>
+    <rect x="85" y="35" width="32" height="20" fill="#eee4f7"/>
+    <rect x="116" y="45" width="26" height="17" fill="#eee4f7"/>
+    <!-- Eyes -->
+    <rect x="72" y="84" width="7" height="10" fill="#352342"/>
+    <rect x="112" y="84" width="7" height="10" fill="#352342"/>
+    <rect x="85" y="111" width="24" height="5" fill="#573765"/>
+    <!-- Body -->
+    <path d="M45 140 L95 125 L145 140 L160 195 L30 195Z" fill="#63358c"/>
+    <path d="M95 145 L109 160 L95 175 L81 160Z" fill="#d6b2f1" stroke="#fff" stroke-width="2"/>
   </g>
+  <text class="label" x="95" y="245" text-anchor="middle">AMETHYST</text>
+  <text class="hint" x="95" y="265" text-anchor="middle">LINKEDIN</text>
+</g>
+</a>
 
-  <!-- GARNET -->
-  <g class="scene s3">
-    <ellipse cx="600" cy="270" rx="130" ry="155" fill="#e95c9b" opacity=".14" filter="url(#glow)"/>
-    <path d="M530 190 Q530 115 600 130 Q670 115 670 190 L650 260 L550 260Z" fill="#29203f" stroke="#e6a5ff" stroke-width="3"/>
-    <path d="M550 210 L650 210 L665 370 L535 370Z" fill="#8d2c6a"/>
-    <path d="M565 205 L590 225 L575 245 L550 230Z M635 205 L610 225 L625 245 L650 230Z" fill="#f4c4e8"/>
-    <rect x="555" y="220" width="90" height="25" rx="8" fill="#211d37" stroke="#e8b6ff" stroke-width="2"/>
-    <path d="M600 350 L620 370 L600 390 L580 370Z" fill="#ed9dc8" stroke="#fff" stroke-width="2"/>
-    <text x="600" y="455" fill="#ffb4dc" font-size="22" letter-spacing="7" text-anchor="middle">GARNET</text>
-  </g>
-
-  <!-- PEARL -->
-  <g class="scene s4">
-    <ellipse cx="600" cy="270" rx="130" ry="155" fill="#8fe9ed" opacity=".14" filter="url(#glow)"/>
-    <path d="M600 120 L630 185 L665 220 L650 300 L630 355 L570 355 L550 300 L535 220 L570 185Z" fill="#bcebed" stroke="#fff" stroke-width="3"/>
-    <path d="M600 150 L625 205 L600 230 L575 205Z" fill="#f8e4e5"/>
-    <path d="M560 250 Q600 230 640 250 L650 385 L550 385Z" fill="#e5a9bb"/>
-    <path d="M600 335 L617 355 L600 375 L583 355Z" fill="#a9f1ee" stroke="#fff" stroke-width="2"/>
-    <circle cx="580" cy="240" r="4" fill="#486c7a"/><circle cx="620" cy="240" r="4" fill="#486c7a"/>
-    <path d="M590 260 L610 260" stroke="#486c7a" stroke-width="2"/>
-    <text x="600" y="455" fill="#c6ffff" font-size="22" letter-spacing="7" text-anchor="middle">PEARL</text>
-  </g>
-
-  <g text-anchor="middle" font-family="Georgia,serif" fill="#fff">
-    <text x="600" y="45" font-size="15" letter-spacing="8" opacity=".8">WELCOME TO</text>
-    <text x="600" y="535" font-size="34" letter-spacing="10">VITÓRIA COSTA</text>
-    <text x="600" y="565" font-size="12" letter-spacing="5" opacity=".75">SOFTWARE ENGINEERING  ✦  CRYSTAL GEMS</text>
-  </g>
+<!-- FOOTER -->
+<g text-anchor="middle">
+  <text x="600" y="710" fill="#aaa" font-size="12" letter-spacing="4">FOUR GEMS  ·  FOUR DESTINATIONS  ·  ONE UNIVERSE</text>
+</g>
 </svg>
-

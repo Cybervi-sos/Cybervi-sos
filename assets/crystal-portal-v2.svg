@@ -1,11 +1,27 @@
 <!-- STEVEN — SITE -->
 <a href="https://cybervi-sos.github.io/Cybervi-sos/" target="_blank">
+  <g transform="translate(105 220)">
+    <!-- TODO: desenho completo do Steven aqui -->
+  </g>
+</a>
 
 <!-- PEARL — GMAIL -->
 <a href="mailto:vitoria.ccosta2024@gmail.com">
+  <g transform="translate(865 220)">
+    <!-- TODO: desenho completo da Pearl aqui -->
+  </g>
+</a>
 
 <!-- GARNET — GITHUB -->
 <a href="https://github.com/Cybervi-sos" target="_blank">
+  <g transform="translate(105 475)">
+    <!-- TODO: desenho completo da Garnet aqui -->
+  </g>
+</a>
 
 <!-- AMETHYST — LINKEDIN -->
 <a href="https://www.linkedin.com/in/vit%C3%B3ria-cristina-martins-costa-8353b13a4/" target="_blank">
+  <g transform="translate(865 475)">
+    <!-- TODO: desenho completo da Amethyst aqui -->
+  </g>
+</a>

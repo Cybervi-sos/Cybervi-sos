@@ -1,70 +1,82 @@
+
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:160d20,35:59317d,70:ff80b5,100:ffe0b2&height=180&section=header&text=VITORIA%20COSTA&fontSize=42&fontColor=ffffff&fontAlignY=42&desc=ENGENHARIA%20DE%20SOFTWARE%20%E2%9C%A6%20CRYSTAL%20GEMS&descSize=14&descAlignY=65&animation=fadeIn" width="100%" />
+<h1>✦ C Y B E R — V I V I ✦</h1>
+
+<p><i>A little universe made of code, dreams and stardust.</i></p>
+
+<img src="./assets/crystal-portal.svg" width="100%" alt="Crystal Gems Portal"/>
 
 <br/>
 
-<img src="https://media.tenor.com/2roX3uxz_68AAAAC/steven-universe-star.gif" width="170" alt="Steven Universe" />
-
-<h2>✦ WELCOME TO MY UNIVERSE ✦</h2>
-
 <p>
-  <strong>✧ A universe built with code, imagination and a little bit of magic. ✧</strong>
+  <strong>VITÓRIA COSTA</strong>
+  <br/>
+  Engenharia de Software
 </p>
 
-<a href="https://github.com/">GITHUB</a> ✦
-<a href="https://www.linkedin.com/">LINKEDIN</a> ✦
-<a href="mailto:seuemail@email.com">EMAIL</a>
+<p>
+  ──────────── ✧ ────────────
+</p>
 
-</div>
-
-
-<div align="center">
-
-## 💎 CHOOSE YOUR DIAMOND
-
-<table>
-<tr>
-<td align="center" width="25%">
-<a href="#blue-diamond">
-<img src="https://img.shields.io/badge/BLUE-DIAMOND-3979D9?style=for-the-badge&logo=starship&logoColor=white"/>
-</a>
-<br/>🌊
-</td>
-<td align="center" width="25%">
-<a href="#yellow-diamond">
-<img src="https://img.shields.io/badge/YELLOW-DIAMOND-E8B923?style=for-the-badge&logo=starship&logoColor=black"/>
-</a>
-<br/>⚡
-</td>
-<td align="center" width="25%">
-<a href="#white-diamond">
-<img src="https://img.shields.io/badge/WHITE-DIAMOND-EAEAEA?style=for-the-badge&logo=starship&logoColor=black"/>
-</a>
-<br/>✧
-</td>
-<td align="center" width="25%">
-<a href="#pink-diamond">
-<img src="https://img.shields.io/badge/PINK-DIAMOND-E879B5?style=for-the-badge&logo=starship&logoColor=white"/>
-</a>
-<br/>🌸
-</td>
-</tr>
-</table>
+<p>
+  <a href="https://github.com/">GitHub</a>
+  &nbsp; ◇ &nbsp;
+  <a href="https://www.linkedin.com/">LinkedIn</a>
+  &nbsp; ◇ &nbsp;
+  <a href="mailto:SEUEMAIL@EMAIL.COM">Email</a>
+</p>
 
 </div>
 
 ---
 
+<div align="center">
+
+### THE UNIVERSE IS YOURS TO EXPLORE
+
+*Four diamonds. Four worlds. One evolving mind.*
+
+</div>
+
 <a id="blue-diamond"></a>
 
-## 💙 BLUE DIAMOND
-*Criatividade, sensibilidade e projetos.*
+## BLUE DIAMOND
+
+<sub>Creativity · Imagination · Experiments</sub>
+
+<!-- BLUE DIAMOND PROJECTS -->
+
+---
 
 <a id="yellow-diamond"></a>
 
-## 💛 YELLOW DIAMOND
-*Tecnologia, lógica e desenvolvimento.*
+## YELLOW DIAMOND
+
+<sub>Logic · Engineering · Development</sub>
+
+<!-- YELLOW DIAMOND PROJECTS -->
+
+---
+
+<a id="white-diamond"></a>
+
+## WHITE DIAMOND
+
+<sub>Knowledge · Learning · Architecture</sub>
+
+<!-- WHITE DIAMOND PROJECTS -->
+
+---
+
+<a id="pink-diamond"></a>
+
+## PINK DIAMOND
+
+<sub>Identity · Ideas · Personal Projects</sub>
+
+<!-- PINK DIAMOND PROJECTS -->
+
 
 <a id="white-diamond"></a>
 

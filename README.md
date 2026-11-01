@@ -1,6 +1,3 @@
-
 <div align="center">
-
-<img src="./assets/crystal-portal.svg" width="100%" alt="Vitoria Costa — Crystal Gems Character Selection"/>
-
+  <img src="./assets/crystal-portal.svg?v=2" width="100%" alt="Cyber-Vivi Crystal Gems"/>
 </div>

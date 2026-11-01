@@ -1,3 +1,5 @@
 <div align="center">
-  <img src="./assets/crystal-portal.svg?v=2" width="100%" alt="Cyber-Vivi Crystal Gems"/>
+
+<img src="./assets/crystal-portal.svg" width="100%" alt="Cyber-Vivi — Crystal Gems Character Selection"/>
+
 </div>

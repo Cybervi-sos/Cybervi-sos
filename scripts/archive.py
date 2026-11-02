@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "assets"
 sys.path.insert(0, str(Path(__file__).parent))
 from textpath import convert  # noqa: E402
+import level  # noqa: E402
 
 C = dict(panel="#1f111b", line="#b9823f", line2="#5a3326", cream="#f6e3c3", gold="#f3c77a",
          amber="#ff9c3a", muted="#c9a98a", plum="#3a1f33", green="#7fd39a")
@@ -97,6 +98,21 @@ def fetch(login, token):
                 followers=u["followers"]["totalCount"], commits=cc["totalCommitContributions"],
                 prs=cc["totalPullRequestContributions"], issues=cc["totalIssueContributions"],
                 total=cc["contributionCalendar"]["totalContributions"], langs=langs, days=days)
+
+
+def total_commits(login, token):
+    """Soma os commits de todos os anos desde a criação da conta (o nível nunca cai)."""
+    def q(query, variables):
+        req = urllib.request.Request("https://api.github.com/graphql",
+                                     data=json.dumps({"query": query, "variables": variables}).encode(),
+                                     headers={"Authorization": f"bearer {token}", "Content-Type": "application/json"})
+        return json.load(urllib.request.urlopen(req))["data"]["user"]
+    created = int(q("query($login:String!){user(login:$login){createdAt}}", {"login": login})["createdAt"][:4])
+    now = date.today().year
+    parts = [f'y{y}:contributionsCollection(from:"{y}-01-01T00:00:00Z",to:"{y}-12-31T23:59:59Z"){{totalCommitContributions}}'
+             for y in range(created, now + 1)]
+    u = q("query($login:String!){user(login:$login){" + " ".join(parts) + "}}", {"login": login})
+    return sum(v["totalCommitContributions"] for v in u.values())
 
 
 def demo_data():
@@ -247,7 +263,9 @@ def main():
     OUT.mkdir(exist_ok=True)
     (OUT / "archive-estatisticas.svg").write_text(panel_stats(data, demo), encoding="utf-8")
     (OUT / "archive-atividade.svg").write_text(panel_activity(data, demo), encoding="utf-8")
-    print("ok", "demo" if demo else "dados reais")
+    commits = data["commits"] if demo else total_commits(login, os.environ["GITHUB_TOKEN"])
+    lv, have, need = level.apply(ROOT, commits)
+    print("ok", "demo" if demo else "dados reais", f"| {commits} commits -> Lv. {lv} ({have}/{need} XP)")
 
 
 if __name__ == "__main__":

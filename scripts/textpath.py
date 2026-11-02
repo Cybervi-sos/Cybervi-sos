@@ -75,3 +75,20 @@ def convert(svg):
     defs = "".join(f'<path id="{gid}" d="{_glyph(name)}"/>' for gid, name in used.items())
     svg = re.sub(r"@font-face\{[^}]*\}", "", svg)
     return svg.replace("<style>", f"<defs>{defs}</defs><style>", 1)
+
+
+def paths(text, x, y, size, fill, anchor="start", extra=""):
+    """Texto como <path> inline (sem <defs>), para inserir em SVGs já prontos."""
+    w = width(text, size)
+    if anchor == "middle":
+        x -= w / 2
+    elif anchor == "end":
+        x -= w
+    s = size / _UPM
+    out = []
+    for ch in text:
+        gname = _CMAP.get(ord(ch), _CMAP[ord("?")])
+        if ch != " ":
+            out.append(f'<path d="{_glyph(gname)}" transform="translate({x:.1f} {y:.1f}) scale({s:.4f} {-s:.4f})"/>')
+        x += _HMTX[gname][0] * s
+    return f'<g fill="{fill}" {extra}>{"".join(out)}</g>'

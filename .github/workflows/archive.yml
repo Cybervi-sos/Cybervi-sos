@@ -1,0 +1,32 @@
+name: Atualizar The Archive
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 9 * * *"   # todo dia, 06:17 em São Paulo
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install fonttools
+      - name: Gerar painéis com os dados do GitHub
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/archive.py "${{ github.repository_owner }}"
+      - name: Salvar se mudou
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/archive-*.svg
+          git diff --cached --quiet || git commit -m "Atualiza The Archive"
+          git push

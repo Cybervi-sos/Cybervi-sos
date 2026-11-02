@@ -63,7 +63,7 @@ def svg(w, h, body, css="", label=""):
 
 
 def demo_tag(w, demo):
-    if not demo:
+    if True:  # sem selo de exemplo nos painéis
         return ""
     return (f'<rect x="{w-262}" y="26" width="216" height="28" rx="6" fill="#120a0e" stroke="{C["line2"]}"/>'
             f'<text x="{w-154}" y="47" class="t" font-size="20" fill="{C["muted"]}" text-anchor="middle">DADOS DE EXEMPLO</text>')
@@ -72,7 +72,7 @@ def demo_tag(w, demo):
 # ------------------------------------------------------------------ dados
 QUERY = """query($login:String!){user(login:$login){
  followers{totalCount}
- repositories(ownerAffiliations:OWNER,isFork:false,first:100,privacy:PUBLIC){totalCount nodes{stargazerCount
+ repositories(ownerAffiliations:OWNER,isFork:false,first:100,privacy:PUBLIC){totalCount nodes{name stargazerCount
   languages(first:10,orderBy:{field:SIZE,direction:DESC}){edges{size node{name}}}}}
  contributionsCollection{totalCommitContributions totalPullRequestContributions totalIssueContributions
   contributionCalendar{totalContributions weeks{contributionDays{date contributionCount}}}}}}"""
@@ -85,6 +85,8 @@ def fetch(login, token):
     u = json.load(urllib.request.urlopen(req))["data"]["user"]
     langs = {}
     for r in u["repositories"]["nodes"]:
+        if r["name"].lower() == login.lower():
+            continue  # ignora o repositório do perfil (scripts da automação)
         for e in r["languages"]["edges"]:
             langs[e["node"]["name"]] = langs.get(e["node"]["name"], 0) + e["size"]
     cc = u["contributionsCollection"]
